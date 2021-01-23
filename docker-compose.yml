@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  reverse-proxy:
+    build: 
+      context: ./reverse-proxy
+    ports:
+      - "80:4000"
+  
+  backend:
+    build:
+      context: ./backend

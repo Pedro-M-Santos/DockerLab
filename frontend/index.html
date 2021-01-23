@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>DOCKER LAB</title>
+    <p> DOCKER LAB</p>
+    <!-- <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" /> -->
+</head>
+
+<body>
+    <div id="root">
+        <button onclick="myFunction()">GET</button>
+        <div id="surprise">
+        </div>
+    </div>
+<script>
+    function myFunction(){
+        var request = new XMLHttpRequest()
+        console.log("GET FUNCTION")
+        request.open('GET', 'http://localhost/api/', true)
+        request.onload = function () {
+            // Begin accessing JSON data here
+            //   var data = JSON.parse(this.response)
+            if (request.status >= 200 && request.status < 400) {
+                // data.forEach((movie) => {
+                //   console.log(movie.title)
+                // })
+                // console.log(this.response)
+                document.getElementById("surprise").innerHTML = this.response
+            } else {
+                console.log('error')
+            }
+        }
+        request.send()
+    }
+</script>
+</body>
+
+</html>
