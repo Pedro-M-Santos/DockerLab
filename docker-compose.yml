@@ -6,6 +6,12 @@ services:
       context: ./reverse-proxy
     ports:
       - "80:4000"
+
+  frontend:
+    build: 
+      context: ./frontend
+    volumes: 
+      - ./frontend/html:/usr/share/nginx/html
   
   backend:
     build:
